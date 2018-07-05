@@ -8,19 +8,19 @@ import { log } from './logger'
 config()
 export const app = express()
 
-app.use(compression())
-app.use(helmet())
-app.use(express.json())
-
-app.use(expressBunyanLogger({name: 'AppName',
-  streams: [{
-    type: 'rotating-file'
+app.use(expressBunyanLogger({
+  name: 'AppName'
+    //   streams: [{
+    // type: 'rotating-file'
     // level: 'info',                  // loging level
     // path: './logs/AppName.log',
     // period: '1d',   // daily rotation
     // count: 3        // keep 3 back copies
-  }]
+    //   }]
 }))
+app.use(compression())
+app.use(helmet())
+app.use(express.json())
 
 app.get('/', (req, res) => res.send({ message: 'Hello world!' }))
 app.listen(process.env.PORT, () => log.info(`Server running on ${process.env.PORT}!`))
