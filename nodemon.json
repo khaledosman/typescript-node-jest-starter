@@ -8,6 +8,6 @@
   "watch": [
     "src"
   ],
-  "exec": "npm start",
+  "exec": "npm run lint && npm start",
   "ext": "ts"
 }
