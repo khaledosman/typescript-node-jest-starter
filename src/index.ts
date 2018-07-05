@@ -1,8 +1,8 @@
 
-import * as express from 'express'
 import * as compression from 'compression'
-import * as helmet from 'helmet'
 import { config } from 'dotenv'
+import * as express from 'express'
+import * as helmet from 'helmet'
 
 config()
 const app = express()
