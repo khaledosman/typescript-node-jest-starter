@@ -9,7 +9,8 @@
     "lint": "tslint --project .",
     "lint:fix": "tslint --fix --project .",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "cluster": "ts-node clusters.ts"
   },
   "jest": {
     "transform": {
@@ -38,7 +39,6 @@
     "@types/helmet": "^0.0.38",
     "@types/jest": "^23.1.4",
     "@types/node": "^10.5.1",
-    "istanbul": "^0.4.5",
     "jest": "^23.3.0",
     "nodemon": "^1.17.5",
     "supertest": "^3.1.0",
