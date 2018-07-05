@@ -11,6 +11,6 @@ app.use(compression())
 app.use(helmet())
 app.use(express.json())
 
-app.get('/', (req, res) => res.send({message: 'Hello world!'}))
+app.get('/', (req, res) => res.send({ message: 'Hello world!' }))
 
 app.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}!`))
