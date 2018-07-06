@@ -2,9 +2,9 @@
 import * as compression from 'compression'
 import { config } from 'dotenv'
 import * as express from 'express'
-import * as expressBunyanLogger from 'express-bunyan-logger'
+import * as ExpressBunyanLogger from 'express-bunyan-logger'
 import * as RateLimit from 'express-rate-limit'
-import * as ExpressRedisCache from 'express-redis-cache'
+// import * as ExpressRedisCache from 'express-redis-cache'
 import * as helmet from 'helmet'
 import { log, loggerOptions } from './logger'
 
@@ -13,13 +13,13 @@ config()
 export const app = express()
 
 /** Caching */
-const cache = ExpressRedisCache(
-  // {
-  //   host: process.env.REDIS_HOST,
-  //   port: process.env.REDIS_PORT,
-  //   auth_pass: process.env.REDIS_PASSWORD
-  // }
-)
+// const cache = ExpressRedisCache(
+// {
+//   host: process.env.REDIS_HOST,
+//   port: process.env.REDIS_PORT,
+//   auth_pass: process.env.REDIS_PASSWORD
+// }
+// )
 
 /** Rate Limiter */
 // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
@@ -32,10 +32,10 @@ const apiLimiter = new RateLimit({
 })
 
 // only apply to requests that begin with /api/
-app.use('/api/', apiLimiter)
+app.use('/api/', /*cache.route(),*/ apiLimiter)
 
 /** Logging */
-app.use(expressBunyanLogger(loggerOptions))
+app.use(ExpressBunyanLogger(loggerOptions))
 
 /** Gzip compression */
 app.use(compression())
@@ -43,5 +43,5 @@ app.use(compression())
 app.use(helmet())
 app.use(express.json())
 
-app.get('/', cache.route(), (req, res) => res.send({ message: 'Hello world!' }))
+app.get('/', (req, res) => res.send({ message: 'Hello world!' }))
 app.listen(process.env.PORT, () => log.info(`Server running on ${process.env.PORT}!`))
