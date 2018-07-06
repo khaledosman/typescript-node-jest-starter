@@ -12,3 +12,5 @@ use `yarn start` to run the application or `yarn cluster` to run multiple instan
 Environment variables are setup in the .env file and will be overwritten if defined before running the application
 
 bunyan is integrated as a logging library for more detailed as well as advanced logging over console.log, some of its features include Log levels & level filtering, outputting logs to files with daily rotations, async logging for better performance over console.log and detailed logs by default for output things like machine name, timestamps, process id, request id, request info, etc..
+
+for best practices check https://www.npmjs.com/package/express-redis-cache for caching API responses and https://github.com/nfriedly/express-rate-limit#readme for ratelimiting to prevent DOS attacks and joi for user input sanitization / validation https://github.com/hapijs/joi
