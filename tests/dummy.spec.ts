@@ -9,14 +9,14 @@ describe('Jest Tests', () => {
   })
 })
 
-describe('GET /', function() {
-  it('respond with json', function(done) {
+describe('GET /', function () {
+  it('respond with json', function (done) {
     // request(app)
     request('localhost:8001')
       .get('/')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect({message: 'Hello world!'})
+      .expect({ message: 'Hello world!' })
       .expect(200, done)
   })
 })
