@@ -34,7 +34,7 @@ app.use(compression())
 app.use(helmet())
 app.use(express.json())
 
-app.use('/api/', cache.route({ expire: 5 }), apiLimiter)
+app.use('/api/', apiLimiter, cache.route({ expire: 5 }))
 
 app.use('/api', apiControllers)
 app.get('/', (req, res) => res.send({ message: 'Hello world!' }))

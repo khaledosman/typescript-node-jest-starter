@@ -7,7 +7,7 @@ WORKDIR /myapp
 COPY . /myapp
 
 # Install any needed packages specified in requirements.txt
-RUN npm install
+RUN npm install --production
 
 # Make port 3000 available to the world outside this container
 EXPOSE 8000

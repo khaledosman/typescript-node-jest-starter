@@ -4,3 +4,6 @@ import { db } from '../db'
 export const Dog = db.model('Dog', new Schema({
   name: String
 }))
+
+const dog = new Dog({name: 'Woof'})
+.save()

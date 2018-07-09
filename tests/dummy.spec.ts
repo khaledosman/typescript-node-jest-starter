@@ -9,8 +9,8 @@ describe('Jest Tests', () => {
   })
 })
 
-describe('GET /', function () {
-  it('respond with json', function (done) {
+describe('GET /', () => {
+  it('respond with json', (done) => {
     // request(app)
     request('localhost:8000')
       .get('/')
