@@ -15,6 +15,5 @@ EXPOSE 8000
 # Define environment variable
 ENV PORT 8000
 
-# Run app.py when the container launches
 # CMD ["npm", "start"]
 CMD ["npm", "run", "cluster"]

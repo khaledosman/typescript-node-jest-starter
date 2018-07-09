@@ -1,15 +1,16 @@
-
 version: "2"
 services:
   api:
-    image: node:latest
+    restart: on-failure
+    container_name: app
     depends_on:
       - mongodb
       - redis
     volumes:
       - ./:/home/node/api/
-    working_dir: /home/node/api
-    command: yarn start
+    build: .
+    ports:
+      - 8000:8000
     networks:
       - backend
     logging:
@@ -19,6 +20,7 @@ services:
         max-file: "3"
 
   mongodb:
+    restart: on-failure
     image: mongo:latest
     volumes:
       - mongodb:/data/db/
@@ -31,6 +33,7 @@ services:
         max-file: "3"
 
   redis:
+    restart: on-failure
     image: redis:latest
     networks:
       - backend
