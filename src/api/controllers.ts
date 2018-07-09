@@ -4,6 +4,6 @@ export const apiControllers = Router()
 
 apiControllers.get('/dog', (req, res) => {
   Dog.find({})
-  .then((docs) => res.send(docs))
+  .then((docs) => res.send({ randomNumber: Math.random() * 100, dogs: docs }))
   .catch((err) => res.status(500).send(err))
 })

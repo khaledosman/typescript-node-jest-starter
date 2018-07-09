@@ -7,6 +7,7 @@ const connectionOptions = {
 const MONGO_URL = process.env.MONGO_URL
 log.info('MONGO_URL: ', MONGO_URL)
 export const db = createConnection(MONGO_URL, connectionOptions)
+
 // CONNECTION EVENTS
 // When successfully connected
 db.on('connected', () => {

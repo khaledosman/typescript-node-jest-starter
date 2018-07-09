@@ -1,4 +1,4 @@
-import * as bunyan from 'bunyan'
+import { createLogger } from 'bunyan'
 
 export const loggerOptions = {
   name: 'AppName'
@@ -11,4 +11,4 @@ export const loggerOptions = {
   //   }]
 }
 
-export const log = bunyan.createLogger(loggerOptions)
+export const log = createLogger(loggerOptions)

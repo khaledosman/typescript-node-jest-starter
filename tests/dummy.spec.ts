@@ -12,7 +12,7 @@ describe('Jest Tests', () => {
 describe('GET /', function () {
   it('respond with json', function (done) {
     // request(app)
-    request('localhost:8001')
+    request('localhost:8000')
       .get('/')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
