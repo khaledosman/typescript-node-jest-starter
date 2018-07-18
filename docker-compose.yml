@@ -8,6 +8,8 @@ services:
       - redis
     volumes:
       - ./:/home/node/api/
+    environment:
+      - MONGO_URL=mongodb://potato:potato@mongodb:27017
     build: .
     ports:
       - 8000:8000
@@ -22,6 +24,10 @@ services:
   mongodb:
     restart: on-failure
     image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=potato
+      - MONGO_INITDB_ROOT_PASSWORD=potato
+    command: mongod --auth
     volumes:
       - mongodb:/data/db/
     networks:
