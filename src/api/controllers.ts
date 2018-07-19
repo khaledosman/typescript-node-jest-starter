@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { Dog } from '../models/dog'
-export const apiControllers = Router()
+export const apiControllers: Router = Router()
 
 apiControllers.get('/dog', (req, res) => {
   Dog.find({})

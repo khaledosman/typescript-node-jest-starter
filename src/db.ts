@@ -1,12 +1,12 @@
-import { createConnection } from 'mongoose'
+import { Connection, createConnection } from 'mongoose'
 import { log } from './logger'
 
 const connectionOptions = {
   dbName: 'app'
 }
-const MONGO_URL = process.env.MONGO_URL
+const MONGO_URL: string = process.env.MONGO_URL
 log.info('MONGO_URL: ', MONGO_URL)
-export const db = createConnection(MONGO_URL, connectionOptions)
+export const db: Connection = createConnection(MONGO_URL, connectionOptions)
 
 // CONNECTION EVENTS
 // When successfully connected

@@ -1,6 +1,6 @@
-import { createLogger } from 'bunyan'
+import { createLogger, LoggerOptions } from 'bunyan'
 
-export const loggerOptions = {
+export const loggerOptions: LoggerOptions = {
   name: 'AppName'
   //   streams: [{
   // type: 'rotating-file'
