@@ -16,6 +16,6 @@ bunyan is integrated as a logging library for more detailed as well as advanced 
 redis & https://www.npmjs.com/package/express-redis-cache is also integrated for caching API responses and https://github.com/nfriedly/express-rate-limit#readme is integrated for ratelimiting to prevent DOS attacks
 
 To run the app standalone without docker make sure you have redis-server and mongod install then run
-`mongod`
-`redis-server`
-`nodemon --inspect src/index.ts` or `ts-node src/index.ts`
+1. `mongod`
+1. `redis-server`
+1. `nodemon --inspect src/index.ts` or `ts-node src/index.ts`
