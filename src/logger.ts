@@ -1,7 +1,7 @@
-import { createLogger, LoggerOptions } from 'bunyan'
+// import { createLogger, LoggerOptions } from 'bunyan'
 
-export const loggerOptions: LoggerOptions = {
-  name: 'AppName'
+// export const loggerOptions: LoggerOptions = {
+//   name: 'AppName'
   //   streams: [{
   // type: 'rotating-file'
   // level: 'info',                  // loging level
@@ -9,6 +9,6 @@ export const loggerOptions: LoggerOptions = {
   // period: '1d',   // daily rotation
   // count: 3        // keep 3 back copies
   //   }]
-}
+// }
 
-export const log = createLogger(loggerOptions)
+// export const log = createLogger(loggerOptions)

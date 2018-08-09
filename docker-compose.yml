@@ -1,7 +1,7 @@
 version: "2"
 services:
   api:
-    restart: on-failure
+    # restart: on-failure
     container_name: app
     depends_on:
       - mongodb
@@ -9,7 +9,9 @@ services:
     volumes:
       - ./:/home/node/api/
     environment:
-      - MONGO_URL=mongodb://potato:potato@mongodb:27017
+      - MONGO_URL=mongodb://root:potato@mongodb:27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     build: .
     ports:
       - 8000:8000
@@ -22,10 +24,10 @@ services:
         max-file: "3"
 
   mongodb:
-    restart: on-failure
+    # restart: on-failure
     image: mongo:latest
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=potato
+      - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=potato
     command: mongod --auth
     volumes:
@@ -39,7 +41,7 @@ services:
         max-file: "3"
 
   redis:
-    restart: on-failure
+    # restart: on-failure
     image: redis:latest
     networks:
       - backend

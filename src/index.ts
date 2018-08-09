@@ -3,12 +3,12 @@ import * as compression from 'compression'
 import { config } from 'dotenv'
 config()
 import * as express from 'express'
-import * as ExpressBunyanLogger from 'express-bunyan-logger'
+// import * as ExpressBunyanLogger from 'express-bunyan-logger'
 import * as ExpressRateLimit from 'express-rate-limit'
 import * as ExpressRedisCache from 'express-redis-cache'
 import * as helmet from 'helmet'
 import { apiControllers } from './api/controllers'
-import { log, loggerOptions } from './logger'
+// import { log, loggerOptions } from './logger'
 
 export const app = express()
 
@@ -29,7 +29,7 @@ const apiLimiter = new ExpressRateLimit({
 })
 
 // Middleware
-app.use(ExpressBunyanLogger(loggerOptions))
+// app.use(ExpressBunyanLogger(loggerOptions))
 app.use(compression())
 app.use(helmet())
 app.use(express.json())
@@ -39,4 +39,4 @@ app.use('/api/', apiLimiter, cache.route({ expire: 5 }))
 app.use('/api', apiControllers)
 app.get('/', (req, res) => res.send({ message: 'Hello world!' }))
 
-app.listen(process.env.PORT, () => log.info(`Server running on ${process.env.PORT}!`))
+app.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}!`))
