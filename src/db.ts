@@ -25,10 +25,11 @@ db.on('disconnected', () => {
 })
 
 // If the Node process ends, close the Mongoose connection
-process.on('SIGINT', () => {
-  db.close(() => {
-    console.log('Mongoose default connection disconnected through app termination')
-    process.exit(0)
-  })
-  // .catch((err) => { throw err })
-})
+['SIGINT', 'SIGTERM', 'SIGQUIT', 'SIGKILL']
+  .forEach((signal) => process.on(signal, () => {
+    db.close(() => {
+      console.log('Mongoose default connection disconnected through app termination')
+      process.exit(0)
+    })
+    // .catch((err) => { throw err })
+  }))
