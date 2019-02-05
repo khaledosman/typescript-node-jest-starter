@@ -1,5 +1,5 @@
 # FROM node:latest
-FROM keymetrics/pm2:latest
+FROM keymetrics/pm2:latest-alpine
 
 # Set the working directory to /ksuf
 WORKDIR /myapp
