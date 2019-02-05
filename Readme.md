@@ -19,3 +19,18 @@ To run the app standalone without docker make sure you have redis-server and mon
 1. `mongod`
 1. `redis-server`
 1. `nodemon --inspect src/index.ts` or `ts-node src/index.ts`
+
+To run the app via docker run
+```docker-compose -f docker-compose.yml build```
+```docker-compose -f docker-compose.yml up```
+
+** Features **
+1. Rate limiting
+2. Caching Requests via redis
+3. Unit tests with jest
+4. Production ready docker file
+5. typescript integration
+6. Clustering
+7. Gzip compression
+8. Securing HTTP headers using helmet
+9. .env files for setting up environment variables
