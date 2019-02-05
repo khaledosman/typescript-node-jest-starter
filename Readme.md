@@ -2,15 +2,16 @@ Starter project for NodeJS Express apps built with Typescript
 
 ## Features
 1. Rate limiting
-2. Caching Requests via redis
+2. Caching API response via redis
 3. Unit tests with jest
-4. Production ready docker file
+4. Production ready docker file for mongo, redis, and running multiple instances of the app via pm2
 5. typescript integration
 6. Clustering
-7. Gzip compression
-8. Securing HTTP headers using helmet
-9. .env files for setting up environment variables1
-10. Advanced logging with bunyan
+7. Graceful start & Shutdown
+8. Gzip compression
+9. Securing HTTP headers using helmet & DDos preventing with rate limit
+10. .env files for setting up environment variables1
+11. Advanced logging with bunyan
 
 ## npm scripts
 use `yarn dev` to run the app in dev mode and restart the app on file changes thanks to nodemon
