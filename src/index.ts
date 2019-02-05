@@ -23,9 +23,9 @@ const cache = ExpressRedisCache({
 // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
 app.enable('trust proxy')
 const apiLimiter = new ExpressRateLimit({
-  delayMs: 0, // disabled
-  max: 100,
-  windowMs: 15 * 60 * 1000 // 15 minutes
+  // delayMs: 0, // disabled
+  max: 100
+  // windowMs: 15 * 60 * 1000 // 15 minutes
 })
 
 // Middleware

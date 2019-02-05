@@ -24,12 +24,12 @@ db.on('disconnected', () => {
   console.log('Mongoose default connection disconnected')
 })
 
+const sigs: any = ['SIGINT', 'SIGTERM', 'SIGQUIT']
 // If the Node process ends, close the Mongoose connection
-['SIGINT', 'SIGTERM', 'SIGQUIT', 'SIGKILL']
-  .forEach((signal) => process.on(signal, () => {
-    db.close(() => {
-      console.log('Mongoose default connection disconnected through app termination')
-      process.exit(0)
-    })
+sigs.forEach((signal) => process.on(signal, () => {
+  db.close(() => {
+    console.log('Mongoose default connection disconnected through app termination')
+    process.exit(0)
+  })
     // .catch((err) => { throw err })
-  }))
+}))

@@ -1,5 +1,5 @@
 # FROM node:latest
-FROM keymetrics/pm2:latest-alpine
+FROM keymetrics/pm2:latest
 
 # Set the working directory to /ksuf
 WORKDIR /myapp
@@ -9,8 +9,7 @@ COPY . /myapp
 
 # Install any needed packages specified in requirements.txt
 # ENV NPM_CONFIG_LOGLEVEL warn
-RUN npm install --production
-
+RUN npm install
 RUN pm2 install typescript
 
 # Make port 3000 available to the world outside this container
