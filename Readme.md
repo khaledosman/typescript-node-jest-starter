@@ -12,6 +12,7 @@ Starter project for NodeJS Express apps built with Typescript
 9. Securing HTTP headers using helmet & DDos preventing with rate limit
 10. .env files for setting up environment variables1
 11. Advanced logging with bunyan
+12. git commit hooks to automatically fix lint errors with StandardJS
 
 ## npm scripts
 use `yarn dev` to run the app in dev mode and restart the app on file changes thanks to nodemon
