@@ -10,7 +10,7 @@ describe('Jest Tests', () => {
 })
 
 describe('GET /', () => {
-  it('respond with json', (done) => {
+  xit('respond with json', (done) => {
     // request(app)
     request('localhost:8000')
       .get('/')
