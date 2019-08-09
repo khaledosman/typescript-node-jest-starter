@@ -1,6 +1,9 @@
 Starter project for NodeJS Express apps built with Typescript
 
 ## Features
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/khaledosman/typescript-node-jest-starter.svg)](https://greenkeeper.io/)
+
 1. Rate limiting
 2. Caching API response via redis
 3. Unit tests with jest
