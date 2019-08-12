@@ -63,3 +63,6 @@ typings/
 
 # Build directory for typescript
 build/
+
+
+package-lock.json
