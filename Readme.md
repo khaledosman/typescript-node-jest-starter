@@ -1,8 +1,9 @@
+[![Greenkeeper badge](https://badges.greenkeeper.io/khaledosman/typescript-node-jest-starter.svg)](https://greenkeeper.io/)
+[![codebeat badge](https://codebeat.co/badges/29047d7b-e268-4156-a8c7-e46f85e95715)](https://codebeat.co/projects/github-com-khaledosman-typescript-node-jest-starter-master)
+
 Starter project for NodeJS Express apps built with Typescript
 
 ## Features
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/khaledosman/typescript-node-jest-starter.svg)](https://greenkeeper.io/)
 
 1. Rate limiting
 2. Caching API response via redis
