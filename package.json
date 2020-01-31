@@ -55,7 +55,7 @@
     "@types/mongoose": "^5.5.37",
     "@types/node": "^13.1.2",
     "husky": "^4.0.2",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2",
     "ts-jest": "^25.1.0",
