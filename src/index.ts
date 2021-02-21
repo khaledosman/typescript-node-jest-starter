@@ -19,7 +19,8 @@ export const app = express()
 // Cache Setup
 const cache = ExpressRedisCache({
   host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT
+  port: process.env.REDIS_PORT,
+  expire: 60 * 60 * 2 // 2 hours
   //   auth_pass: process.env.REDIS_PASSWORD
 })
 
@@ -53,4 +54,8 @@ initDB()
     console.log('connected to db')
     server.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}!`))
     handleGracefulShutdown(server, connection)
+  })
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
   })

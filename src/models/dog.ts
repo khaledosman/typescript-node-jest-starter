@@ -5,5 +5,3 @@ const DogSchema: Schema = new Schema({
 })
 
 export const Dog: Model<any> = model('Dog', DogSchema)
-
-new Dog({ name: 'woof' }).save()
