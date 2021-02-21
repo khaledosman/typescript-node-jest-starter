@@ -1,11 +1,9 @@
-import { Model, Schema } from 'mongoose'
-import { db } from '../db'
+import { Model, Schema, model } from 'mongoose'
 
 const DogSchema: Schema = new Schema({
   name: String
 })
 
-export const Dog: Model<any> = db.model('Dog', DogSchema)
+export const Dog: Model<any> = model('Dog', DogSchema)
 
-new Dog({ name: 'Woof' })
-  .save()
+new Dog({ name: 'woof' }).save()

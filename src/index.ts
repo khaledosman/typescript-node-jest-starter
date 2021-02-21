@@ -1,11 +1,16 @@
-import compression from 'compression'
 import './helpers/load-env'
 import express from 'express'
+import compression from 'compression'
 // import ExpressBunyanLogger from 'express-bunyan-logger'
 import ExpressRateLimit from 'express-rate-limit'
 import ExpressRedisCache from 'express-redis-cache'
 import helmet from 'helmet'
-import { apiControllers } from './api/controllers'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import http from 'http'
+import { initDB } from './db'
+import { apiControllers } from './api/apiControllers'
+import { handleGracefulShutdown } from './helpers/handle-graceful-shutdown'
 
 // import { log, loggerOptions } from './logger'
 
@@ -31,11 +36,21 @@ const apiLimiter = new ExpressRateLimit({
 // app.use(ExpressBunyanLogger(loggerOptions))
 app.use(compression())
 app.use(helmet())
+app.use(cors())
 app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/api/', apiLimiter, cache.route({ expire: 5 }))
 
 app.use('/api', apiControllers)
 app.get('/', (req, res) => res.send({ message: 'Hello world!' }))
 
-app.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}!`))
+const server = http.createServer(app)
+
+// graceful start
+initDB()
+  .then((connection) => {
+    console.log('connected to db')
+    server.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT}!`))
+    handleGracefulShutdown(server, connection)
+  })
