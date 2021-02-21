@@ -2,7 +2,9 @@ import { Connection, createConnection } from 'mongoose'
 // import { log } from './logger'
 
 const connectionOptions = {
-  dbName: 'app'
+  dbName: 'app',
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 }
 const MONGO_URL: string = process.env.MONGO_URL
 console.log('MONGO_URL: ', MONGO_URL)
