@@ -1,13 +1,12 @@
-
-import * as compression from 'compression'
-import { config } from 'dotenv'
-config()
-import * as express from 'express'
-// import * as ExpressBunyanLogger from 'express-bunyan-logger'
-import * as ExpressRateLimit from 'express-rate-limit'
-import * as ExpressRedisCache from 'express-redis-cache'
-import * as helmet from 'helmet'
+import compression from 'compression'
+import './helpers/load-env'
+import express from 'express'
+// import ExpressBunyanLogger from 'express-bunyan-logger'
+import ExpressRateLimit from 'express-rate-limit'
+import ExpressRedisCache from 'express-redis-cache'
+import helmet from 'helmet'
 import { apiControllers } from './api/controllers'
+
 // import { log, loggerOptions } from './logger'
 
 export const app = express()

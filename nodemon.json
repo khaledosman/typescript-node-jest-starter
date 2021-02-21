@@ -8,6 +8,6 @@
   "watch": [
     "src/**/*"
   ],
-  "exec": "npm run lint && ts-node -T src/index.ts",
+  "exec": "ts-node -T src/index.ts",
   "ext": "ts"
 }

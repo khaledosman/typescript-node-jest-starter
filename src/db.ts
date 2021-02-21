@@ -33,5 +33,5 @@ sigs.forEach((signal) => process.on(signal, () => {
     console.log('Mongoose default connection disconnected through app termination')
     process.exit(0)
   })
-    // .catch((err) => { throw err })
+  // .catch((err) => { throw err })
 }))
